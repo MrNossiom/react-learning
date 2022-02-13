@@ -1,0 +1,48 @@
+.player-wrapper {
+	max-height: 20vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+	.time-control {
+		width: 50%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		span {
+			width: 35px;
+			height: 21px;
+			margin: 1rem;
+			flex-shrink: 0;
+		}
+	}
+
+	.play-controls {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+		width: 30%;
+
+		svg {
+			cursor: pointer;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.player-wrapper {
+		margin-top: 5rem;
+		height: 20vh;
+
+		.time-control {
+			width: 70%;
+		}
+
+		.play-controls {
+			width: 80%;
+		}
+	}
+}

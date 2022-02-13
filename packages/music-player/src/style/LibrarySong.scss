@@ -1,0 +1,48 @@
+.library-song {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 10px 15px;
+	padding: 1rem 2rem;
+	transition: 500ms;
+	cursor: pointer;
+	border-radius: 15px;
+	overflow: scroll;
+
+	.song- {
+		&cover {
+			margin-right: 1rem;
+			width: 30%;
+		}
+
+		&title {
+			font-size: 1.5rem;
+		}
+
+		&artist {
+			font-size: 1rem;
+		}
+	}
+
+	&.selected {
+		background-color: rgb(230, 230, 230);
+	}
+
+	&:hover {
+		background-color: rgb(200, 200, 200);
+	}
+}
+
+@media screen and (min-width: 400px) and (max-width: 768px) {
+	.library-song {
+		.song- {
+			&title {
+				font-size: 3rem;
+			}
+
+			&artist {
+				font-size: 2rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+.library-overlay {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: -30%;
+	background-color: whitesmoke;
+	width: 30%;
+	height: 100%;
+	box-shadow: 2px 2px 50px rgb(150, 150, 150);
+	overflow: scroll;
+	transition: all 0.5s ease-in-out;
+	opacity: 0;
+
+	&.active {
+		left: 0;
+		opacity: 1;
+	}
+
+	h2 {
+		padding: 2rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.library-overlay {
+		position: fixed;
+		left: 0;
+		top: unset;
+		bottom: -100vh;
+		width: 100%;
+		height: 75vh;
+		background-color: whitesmoke;
+		border-top-left-radius: 50px;
+		border-top-right-radius: 50px;
+		opacity: 0;
+
+		&.active {
+			bottom: 0;
+			opacity: 1;
+		}
+	}
+}

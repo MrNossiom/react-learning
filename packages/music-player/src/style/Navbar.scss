@@ -1,0 +1,32 @@
+.navbar {
+	width: 100%;
+	min-height: 7vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+	.library-toggle {
+		background-color: white;
+		border: 2px solid black;
+		font-size: 1rem;
+		font-weight: 500;
+		padding: 0.5rem;
+		border-radius: 10px;
+		transition: all 0.3s ease;
+
+		.music-symbol {
+			margin-right: 0.3rem;
+		}
+
+		&:hover {
+			color: white;
+			background-color: black;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.navbar {
+		min-height: 10vh;
+	}
+}
