@@ -6,7 +6,7 @@
 		"packages/*"
 	],
 	"scripts": {
-		"start": "turbo run start --parallel",
+		"start": "turbo run start",
 		"lint": "turbo run lint --parallel",
 		"format": "prettier --write \"**/*.{html,scss,js,jsx,json,ts,md}\""
 	},

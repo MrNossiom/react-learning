@@ -1,0 +1,17 @@
+{
+	"processors": ["stylelint-processor-styled-components"],
+	"extends": [
+		"stylelint-config-recommended",
+		"stylelint-config-styled-components"
+	],
+	"ignoreFiles": "!**/*.jsx",
+	"rules": {
+		"number-leading-zero": "never",
+		"block-no-empty": true,
+		"color-no-invalid-hex": true,
+		"property-no-unknown": true,
+		"declaration-colon-space-after": "always",
+		"declaration-colon-space-before": "never",
+		"indentation": "tab"
+	}
+}
