@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faAngleLeft, faAngleRight, faPause } from '@fortawesome/free-solid-svg-icons';
-import { Range, getTrackBackground } from 'react-range';
-
 import '../style/Player.scss';
+import { Range, getTrackBackground } from 'react-range';
+import { faAngleLeft, faAngleRight, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 
 const Player = ({ audioRef,
-	currentSong, setCurrentSong,
-	isPlaying, setIsPlaying,
+	currentSong, isPlaying,
+	setCurrentSong, setIsPlaying,
 	songs }) => {
 	const [songInfo, setSongInfo] = useState({
 		currentTime: 0,
@@ -61,8 +60,8 @@ const Player = ({ audioRef,
 	};
 
 	return (
-		<div className="player-wrapper">
-			<div className="time-control">
+		<div className={'player-wrapper'}>
+			<div className={'time-control'}>
 				<span>{getTime(songInfo.currentTime)}</span>
 				<Range
 					min={0}
@@ -79,26 +78,29 @@ const Player = ({ audioRef,
 				/>
 				<span>{getTime(songInfo.duration)}</span>
 			</div>
-			<div className="play-controls">
-				<FontAwesomeIcon onClick={() => skipTrackHandler('backward')} className="skip-back" size="2x" icon={faAngleLeft} />
-				<FontAwesomeIcon onClick={playSongHandler} className="play" size="2x" icon={isPlaying ? faPause : faPlay} />
-				<FontAwesomeIcon onClick={() => skipTrackHandler('forward')} className="skip-forward" size="2x" icon={faAngleRight} />
+			<div className={'play-controls'}>
+				<FontAwesomeIcon onClick={() => skipTrackHandler('backward')} className={'skip-back'} size={'2x'} icon={faAngleLeft} />
+				<FontAwesomeIcon onClick={playSongHandler} className={'play'} size={'2x'} icon={isPlaying ? faPause : faPlay} />
+				<FontAwesomeIcon onClick={() => skipTrackHandler('forward')} className={'skip-forward'} size={'2x'} icon={faAngleRight} />
 			</div>
 			<audio onTimeUpdate={timeUpdateHandler}
 				onEnded={() => skipTrackHandler('forward')}
 				onLoadedMetadata={timeUpdateHandler}
 				ref={audioRef}
 				src={currentSong.audio}
-				type="audio/mpeg"
+				type={'audio/mpeg'}
 			/>
 		</div>
 	);
 };
 
-const Track = ({ props, children, values, max, colors }) => (
+const Track = ({ children, colors, max, props, values }) => (
 	<div
 		onMouseDown={props.onMouseDown}
 		onTouchStart={props.onTouchStart}
+		role={'slider'}
+		aria-valuenow={max}
+		tabIndex={0}
 		style={{
 			...props.style,
 			height: '36px',
@@ -126,7 +128,7 @@ const Track = ({ props, children, values, max, colors }) => (
 	</div >
 );
 
-const Thumb = ({ props, isDragged, color }) => (
+const Thumb = ({ color, isDragged, props }) => (
 	<div
 		{...props}
 		style={{

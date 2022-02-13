@@ -1,12 +1,10 @@
-import { useRef, useState } from 'react';
-import Navbar from './components/Navbar';
-import ActiveSongDisplay from './components/ActiveSongDisplay';
-import Player from './components/Player';
-import Library from './components/Library';
-
-import SongsDataList from './SongsData';
-
 import './style/App.scss';
+import { useRef, useState } from 'react';
+import ActiveSongDisplay from './components/ActiveSongDisplay';
+import Library from './components/Library';
+import Navbar from './components/Navbar';
+import Player from './components/Player';
+import SongsDataList from './SongsData';
 
 const App = () => {
 	const [isLibraryActive, setIsLibraryActive] = useState(false);

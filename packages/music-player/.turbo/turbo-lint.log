@@ -1,0 +1,35 @@
+[35mmusic-player:lint: [0mcache hit, replaying output [2mf0045871eaa998f9[0m
+[35mmusic-player:lint: [0m$ eslint . --fix --ext js,jsx
+[35mmusic-player:lint: [0m(node:59645) [ESLINT_LEGACY_ECMAFEATURES] DeprecationWarning: The 'ecmaFeatures' config file property is deprecated and has no effect. (found in ".eslintrc.json » eslint-config-tantalum/react")
+[35mmusic-player:lint: [0m(Use `node --trace-deprecation ...` to show where the warning was created)
+[35mmusic-player:lint: [0m
+[35mmusic-player:lint: [0m/Users/MiloMoisson/NotICloud/Programation/react-learning/packages/music-player/src/App.jsx
+[35mmusic-player:lint: [0m   2:20  warning  Unable to resolve path to module './components/Navbar'             import/no-unresolved
+[35mmusic-player:lint: [0m   2:20  warning  Missing file extension for "./components/Navbar"                   import/extensions
+[35mmusic-player:lint: [0m   3:1   warning  Imports should be sorted alphabetically                            sort-imports
+[35mmusic-player:lint: [0m   3:31  warning  Unable to resolve path to module './components/ActiveSongDisplay'  import/no-unresolved
+[35mmusic-player:lint: [0m   3:31  warning  Missing file extension for "./components/ActiveSongDisplay"        import/extensions
+[35mmusic-player:lint: [0m   4:20  warning  Unable to resolve path to module './components/Player'             import/no-unresolved
+[35mmusic-player:lint: [0m   4:20  warning  Missing file extension for "./components/Player"                   import/extensions
+[35mmusic-player:lint: [0m   5:1   warning  Imports should be sorted alphabetically                            sort-imports
+[35mmusic-player:lint: [0m   5:21  warning  Unable to resolve path to module './components/Library'            import/no-unresolved
+[35mmusic-player:lint: [0m   5:21  warning  Missing file extension for "./components/Library"                  import/extensions
+[35mmusic-player:lint: [0m   9:1   warning  Expected 'none' syntax before 'single' syntax                      sort-imports
+[35mmusic-player:lint: [0m  41:1   warning  exported declaration 'default' not used within other modules       import/no-unused-modules
+[35mmusic-player:lint: [0m
+[35mmusic-player:lint: [0m/Users/MiloMoisson/NotICloud/Programation/react-learning/packages/music-player/src/components/ActiveSongDisplay.jsx
+[35mmusic-player:lint: [0m  13:1  warning  exported declaration 'default' not used within other modules  import/no-unused-modules
+[35mmusic-player:lint: [0m
+[35mmusic-player:lint: [0m/Users/MiloMoisson/NotICloud/Programation/react-learning/packages/music-player/src/components/Library.jsx
+[35mmusic-player:lint: [0m   3:1   warning  Imports should be sorted alphabetically                       sort-imports
+[35mmusic-player:lint: [0m   3:25  warning  Unable to resolve path to module './LibrarySong'              import/no-unresolved
+[35mmusic-player:lint: [0m   3:25  warning  Missing file extension for "./LibrarySong"                    import/extensions
+[35mmusic-player:lint: [0m   5:1   warning  Expected 'none' syntax before 'single' syntax                 sort-imports
+[35mmusic-player:lint: [0m  38:1   warning  exported declaration 'default' not used within other modules  import/no-unused-modules
+[35mmusic-player:lint: [0m
+[35mmusic-player:lint: [0m/Users/MiloMoisson/NotICloud/Programation/react-learning/packages/music-player/src/components/LibrarySong.jsx
+[35mmusic-player:lint: [0m  10:3  error    Visible, non-interactive elements with click handlers must have at least one keyboard listener  jsx-a11y/click-events-have-key-events
+[35mmusic-player:lint: [0m  10:3  error    Static HTML elements with event handlers require a role                                         jsx-a11y/no-static-element-interactions
+[35mmusic-player:lint: [0m  20:1  warning  exported declaration 'default' not used within other modules                                    import/no-unused-modules
+[35mmusic-player:lint: [0m
+[35mmusic-player:lint: [0m/Users/MiloMoisson/NotICloud/Programation/react-learning/pa

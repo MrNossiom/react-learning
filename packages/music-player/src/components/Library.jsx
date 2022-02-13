@@ -1,12 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react';
-import LibrarySong from './LibrarySong';
-
 import '../style/Library.scss';
+import LibrarySong from './LibrarySong';
+import { useEffect } from 'react';
 
-const Library = ({ audioRef, isPlaying, isLibraryActive,
-	songs, setSongs,
-	currentSong, setCurrentSong }) => {
+const Library = ({ audioRef, currentSong, isLibraryActive,
+	isPlaying, setCurrentSong,
+	setSongs, songs }) => {
 	useEffect(() => {
 		setSongs(songs.map((element, index) => {
 			if (index === songs.findIndex(({ id }) => id === currentSong.id)) {
@@ -26,7 +24,7 @@ const Library = ({ audioRef, isPlaying, isLibraryActive,
 	return (
 		<div className={`library-overlay${isLibraryActive ? ' active' : ''}`}>
 			<h2>Library</h2>
-			<div className="library-songs">
+			<div className={'library-songs'}>
 				{
 					songs && songs.map((song) => <LibrarySong songs={songs} setSongs={setSongs} audioRef={audioRef} isPlaying={isPlaying} song={song} setCurrentSong={setCurrentSong} key={song.id} />)
 				}
