@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Tests
+coverage/
+
+# Production
+build/
+
+# Misc
+.DS_Store
+.vscode
+
+# Cache
+.netlify/
+.vercel/
+.next/
+.pnp/
+db/
+.eslintcache
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
