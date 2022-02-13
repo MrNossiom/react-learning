@@ -15,21 +15,31 @@ const App = () => {
 	const audioRef = useRef(null);
 
 	return (
-
 		<>
-			<Library audioRef={audioRef}
+			<Library
+				audioRef={audioRef}
 				isLibraryActive={isLibraryActive}
 				isPlaying={isPlaying}
-				songs={songs} setSongs={setSongs}
-				currentSong={currentSong} setCurrentSong={setCurrentSong}
+				songs={songs}
+				setSongs={setSongs}
+				currentSong={currentSong}
+				setCurrentSong={setCurrentSong}
 			/>
-			<div className={`static-content${isLibraryActive ? ' library-active' : ''}`}>
+			<div
+				className={`static-content${
+					isLibraryActive ? ' library-active' : ''
+				}`}
+			>
 				<Navbar setIsLibraryActive={setIsLibraryActive} />
 				<ActiveSongDisplay currentSong={currentSong} />
-				<Player audioRef={audioRef}
-					currentSong={currentSong} setCurrentSong={setCurrentSong}
-					songs={songs} setSongs={setSongs}
-					isPlaying={isPlaying} setIsPlaying={setIsPlaying}
+				<Player
+					audioRef={audioRef}
+					currentSong={currentSong}
+					setCurrentSong={setCurrentSong}
+					songs={songs}
+					setSongs={setSongs}
+					isPlaying={isPlaying}
+					setIsPlaying={setIsPlaying}
 				/>
 			</div>
 		</>

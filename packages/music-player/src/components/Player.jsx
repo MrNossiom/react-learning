@@ -1,13 +1,22 @@
 import '../style/Player.scss';
 import { Range, getTrackBackground } from 'react-range';
-import { faAngleLeft, faAngleRight, faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import {
+	faAngleLeft,
+	faAngleRight,
+	faPause,
+	faPlay,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 
-const Player = ({ audioRef,
-	currentSong, isPlaying,
-	setCurrentSong, setIsPlaying,
-	songs }) => {
+const Player = ({
+	audioRef,
+	currentSong,
+	isPlaying,
+	setCurrentSong,
+	setIsPlaying,
+	songs,
+}) => {
 	const [songInfo, setSongInfo] = useState({
 		currentTime: 0,
 		duration: 0,
@@ -45,8 +54,14 @@ const Player = ({ audioRef,
 		} else if (direction === 'forward' || direction === 'backward') {
 			let nextSongIndex;
 
-			if (direction === 'forward') nextSongIndex = (songs.findIndex(({ id }) => id === currentSong.id) + 1) % songs.length;
-			else if (direction === 'backward') nextSongIndex = (songs.findIndex(({ id }) => id === currentSong.id) - 1) % songs.length;
+			if (direction === 'forward')
+				nextSongIndex =
+					(songs.findIndex(({ id }) => id === currentSong.id) + 1) %
+					songs.length;
+			else if (direction === 'backward')
+				nextSongIndex =
+					(songs.findIndex(({ id }) => id === currentSong.id) - 1) %
+					songs.length;
 			if (nextSongIndex === -1) nextSongIndex = songs.length - 1;
 			await setCurrentSong(songs[nextSongIndex]);
 			if (isPlaying) audioRef.current.play();
@@ -56,7 +71,9 @@ const Player = ({ audioRef,
 	const getTime = (time) => {
 		if (!time) return '0:00';
 
-		return `${Math.floor(time / 60)}:${`0${Math.floor(time % 60)}`.slice(-2)}`;
+		return `${Math.floor(time / 60)}:${`0${Math.floor(time % 60)}`.slice(
+			-2
+		)}`;
 	};
 
 	return (
@@ -68,8 +85,17 @@ const Player = ({ audioRef,
 					max={songInfo.duration || 1}
 					values={[songInfo.currentTime]}
 					onChange={timeDragHandler}
-					renderTrack={(props) => <Track colors={currentSong.colors} max={songInfo.duration || 1} values={[songInfo.currentTime]} {...props} />}
-					renderThumb={(props) => <Thumb color={currentSong.colors[0]} {...props} />}
+					renderTrack={(props) => (
+						<Track
+							colors={currentSong.colors}
+							max={songInfo.duration || 1}
+							values={[songInfo.currentTime]}
+							{...props}
+						/>
+					)}
+					renderThumb={(props) => (
+						<Thumb color={currentSong.colors[0]} {...props} />
+					)}
 					style={{
 						height: '100%',
 						width: '100%',
@@ -79,11 +105,27 @@ const Player = ({ audioRef,
 				<span>{getTime(songInfo.duration)}</span>
 			</div>
 			<div className={'play-controls'}>
-				<FontAwesomeIcon onClick={() => skipTrackHandler('backward')} className={'skip-back'} size={'2x'} icon={faAngleLeft} />
-				<FontAwesomeIcon onClick={playSongHandler} className={'play'} size={'2x'} icon={isPlaying ? faPause : faPlay} />
-				<FontAwesomeIcon onClick={() => skipTrackHandler('forward')} className={'skip-forward'} size={'2x'} icon={faAngleRight} />
+				<FontAwesomeIcon
+					onClick={() => skipTrackHandler('backward')}
+					className={'skip-back'}
+					size={'2x'}
+					icon={faAngleLeft}
+				/>
+				<FontAwesomeIcon
+					onClick={playSongHandler}
+					className={'play'}
+					size={'2x'}
+					icon={isPlaying ? faPause : faPlay}
+				/>
+				<FontAwesomeIcon
+					onClick={() => skipTrackHandler('forward')}
+					className={'skip-forward'}
+					size={'2x'}
+					icon={faAngleRight}
+				/>
 			</div>
-			<audio onTimeUpdate={timeUpdateHandler}
+			<audio
+				onTimeUpdate={timeUpdateHandler}
 				onEnded={() => skipTrackHandler('forward')}
 				onLoadedMetadata={timeUpdateHandler}
 				ref={audioRef}
@@ -125,7 +167,7 @@ const Track = ({ children, colors, max, props, values }) => (
 		>
 			{children}
 		</div>
-	</div >
+	</div>
 );
 
 const Thumb = ({ color, isDragged, props }) => (
@@ -143,12 +185,14 @@ const Thumb = ({ color, isDragged, props }) => (
 			boxShadow: '0px 2px 6px #AAA',
 		}}
 	>
-		<div style={{
-			height: '10px',
-			width: '10px',
-			borderRadius: '50px',
-			backgroundColor: isDragged ? color : 'grey',
-		}} />
+		<div
+			style={{
+				height: '10px',
+				width: '10px',
+				borderRadius: '50px',
+				backgroundColor: isDragged ? color : 'grey',
+			}}
+		/>
 	</div>
 );
 

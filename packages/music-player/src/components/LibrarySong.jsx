@@ -7,7 +7,12 @@ const LibrarySong = ({ audioRef, isPlaying, setCurrentSong, song }) => {
 	};
 
 	return (
-		<div role={'button'} tabIndex={0} onClick={songSelectHandler} className={`library-song${song.active ? ' selected' : ''}`} >
+		<div
+			role={'button'}
+			tabIndex={0}
+			onClick={songSelectHandler}
+			className={`library-song${song.active ? ' selected' : ''}`}
+		>
 			<img className={'song-cover'} src={song.cover} alt={song.title} />
 			<div className={'song-infos'}>
 				<h4 className={'song-title'}>{song.title}</h4>
